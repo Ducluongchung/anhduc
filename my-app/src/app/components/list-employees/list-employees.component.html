@@ -1,0 +1,76 @@
+<div class="container">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        data-whatever="@mdo">Thêm mới</button>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of employee">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.address}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">Detail </button>
+                            <button type="button" class="btn btn-success">Update</button>
+                            <button type="button" class="btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Employees</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="contactForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">ID</label>
+                        <input type="text" class="form-control" id="recipient-name" formControlName="id">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Name</label>
+                        <input type="text" class="form-control" id="recipient-name" formControlName="name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Age</label>
+                        <input type="number" class="form-control" id="recipient-name" formControlName="age" >
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Adress</label>
+                        <input type="text" class="form-control" id="recipient-name" formControlName="address" >
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Phone</label>
+                        <input type="text" class="form-control" id="recipient-name" formControlName="phone" >
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"(click)="onSubmit(contactForm.value)">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
